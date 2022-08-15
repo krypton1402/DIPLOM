@@ -23,12 +23,18 @@
 		<StyleInclude Source="avares://Test/MyControls/PanelWithButtons.axaml"/>
 		
 	</Window.Styles>
-	
+	<StackPanel VerticalAlignment="Bottom">
+		<Grid VerticalAlignment="Top" RowDefinitions="auto">
+		<Image Grid.Row="0" Width="128" Height="70" Source="/Assets/logo_stankin_2017.jpg" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+		</Grid>
 	<Grid ColumnDefinitions="auto,auto" RowDefinitions="auto,auto" VerticalAlignment="Bottom">
 	<uc:PanelWithButtons Grid.Column="1" Grid.Row="0" Orientation="Vertical"></uc:PanelWithButtons>
 	<uc:PanelWithButtons Grid.Column="1" Grid.Row="1" Orientation="Horizontal"></uc:PanelWithButtons>
+		
 	</Grid>
 	
 	
-	
+        
+	</StackPanel>
+			
 </Window>
