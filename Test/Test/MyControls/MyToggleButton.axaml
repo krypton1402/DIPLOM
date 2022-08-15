@@ -1,0 +1,55 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:Test.MyControls"
+		xmlns:uc="clr-namespace:Test.MyControls">
+
+
+	
+		
+
+	<Design.PreviewWith>
+		<controls:MyToggleButton />
+	</Design.PreviewWith>
+
+	<Style Selector="controls|MyToggleButton">
+		<!-- Set Defaults -->
+		<Setter Property="Template">
+
+			<ControlTemplate>
+				<ToggleButton>
+					<StackPanel>
+						<Border  Width="12" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center">
+							<TextBlock Background="Gray" Width="16"
+											Height="16"
+									        Text="{TemplateBinding FirstText}"></TextBlock>
+	                     </Border>
+						<Border Width="128" Height="70">
+							<TextBlock HorizontalAlignment="Center"
+									   Text="{TemplateBinding SecondText}"></TextBlock>
+						</Border>
+					</StackPanel>
+				</ToggleButton>
+			</ControlTemplate>
+		</Setter>
+
+	</Style>
+	<Style Selector="ToggleButton">
+		
+		
+		<Setter Property="Background" Value="#486d92"></Setter>
+		<Setter Property="Foreground" Value="White"></Setter>
+		<Setter Property="Width" Value="128"></Setter>
+		<Setter Property="Height" Value="70"></Setter>
+		<Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+		<Setter Property="CornerRadius" Value="0"></Setter>
+		
+	</Style>
+	<Style Selector="ToggleButton:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="#395778" />
+		<Setter Property="TextBlock.Foreground" Value="White" />
+	</Style>
+	<Style Selector="ToggleButton:checked /template/ ContentPresenter">
+		<Setter Property="Background" Value="#395778" />
+		<Setter Property="TextBlock.Foreground" Value="White" />
+	</Style>
+</Styles>

@@ -1,0 +1,34 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Test.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:uc="clr-namespace:Test.MyControls"
+		
+        mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="768"
+        x:Class="Test.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Test"
+		SizeToContent="Width">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Window.Styles>
+		<StyleInclude Source = "avares://Test/MyControls/MyCustomButton.axaml" />
+		<StyleInclude Source = "avares://Test/MyControls/MyToggleButton.axaml" />
+		<StyleInclude Source = "avares://Test/MyControls/MyCheckButton.axaml" />
+		<StyleInclude Source = "avares://Test/MyControls/MyRadioButton.axaml" />
+		<StyleInclude Source="avares://Test/MyControls/PanelWithButtons.axaml"/>
+		
+	</Window.Styles>
+	
+	<Grid ColumnDefinitions="auto,auto" RowDefinitions="auto,auto" VerticalAlignment="Bottom">
+	<uc:PanelWithButtons Grid.Column="1" Grid.Row="0" Orientation="Vertical"></uc:PanelWithButtons>
+	<uc:PanelWithButtons Grid.Column="1" Grid.Row="1" Orientation="Horizontal"></uc:PanelWithButtons>
+	</Grid>
+	
+	
+	
+</Window>

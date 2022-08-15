@@ -1,0 +1,24 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:Test.MyControls">
+  <Design.PreviewWith>
+    <controls:MyCheckButton />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|MyCheckButton">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+		<ControlTemplate>
+
+			<Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#486d92" Width="128" Height="70" >
+				<CheckBox Margin="5" Foreground="White" Content="Это чекбокс">
+					<CheckBox.RenderTransform>
+						<ScaleTransform ScaleX="0.9" ScaleY="0.9"></ScaleTransform>
+					</CheckBox.RenderTransform>
+				</CheckBox>
+			</Border>
+			
+		</ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>
