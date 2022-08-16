@@ -23,18 +23,23 @@
 		<StyleInclude Source="avares://Test/MyControls/PanelWithButtons.axaml"/>
 		
 	</Window.Styles>
-	<StackPanel VerticalAlignment="Bottom">
-		<Grid VerticalAlignment="Top" RowDefinitions="auto">
-		<Image Grid.Row="0" Width="128" Height="70" Source="/Assets/logo_stankin_2017.jpg" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-		</Grid>
-	<Grid ColumnDefinitions="auto,auto" RowDefinitions="auto,auto" VerticalAlignment="Bottom">
-	<uc:PanelWithButtons Grid.Column="1" Grid.Row="0" Orientation="Vertical"></uc:PanelWithButtons>
-	<uc:PanelWithButtons Grid.Column="1" Grid.Row="1" Orientation="Horizontal"></uc:PanelWithButtons>
+		
+
+	<Grid ColumnDefinitions="auto,auto" RowDefinitions="auto,auto,auto" VerticalAlignment="Bottom">
+	<StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Top">
+	<Border BorderBrush="Gray" HorizontalAlignment="Stretch">
+		<Border BorderBrush="Gray" BorderThickness="1">
+			<Image Stretch="Fill" Width="128" Height="70" Source="/Assets/logo_stankin_2017.jpg" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+		</Border>
+	</Border>
+	</StackPanel>
+	<uc:PanelWithButtons Grid.Column="1" Grid.Row="1" Orientation="Vertical"></uc:PanelWithButtons>
+	<uc:PanelWithButtons Grid.Column="1" Grid.Row="2" Orientation="Horizontal"></uc:PanelWithButtons>
 		
 	</Grid>
 	
 	
         
-	</StackPanel>
+	
 			
 </Window>
