@@ -32,11 +32,18 @@
 			<Image Stretch="Fill" Width="128" Height="70" Source="/Assets/logo_stankin_2017.jpg" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 		</Border>
 	</Border>
+		
 	</StackPanel>
+		<StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+			<Border BorderBrush="Gray" HorizontalAlignment="Center">
+				<Image Stretch="Fill" Width="768" Height="578" Source="/Assets/Back.jpg" VerticalAlignment="Center"></Image>
+			</Border>
+		</StackPanel>
 	<uc:PanelWithButtons Grid.Column="1" Grid.Row="1" Orientation="Vertical"></uc:PanelWithButtons>
 	<uc:PanelWithButtons Grid.Column="1" Grid.Row="2" Orientation="Horizontal"></uc:PanelWithButtons>
-		
+
 	</Grid>
+	
 	
 	
         
