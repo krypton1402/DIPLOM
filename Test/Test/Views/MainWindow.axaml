@@ -1,4 +1,5 @@
 <Window xmlns="https://github.com/avaloniaui"
+		
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:Test.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -32,7 +33,27 @@
 			<Image Stretch="Fill" Width="128" Height="70" Source="/Assets/logo_stankin_2017.jpg" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 		</Border>
 	</Border>
-		
+	</StackPanel>
+		<!--ДАТА И ВРЕМЯ-->
+		<StackPanel Grid.Column="1" Grid.Row="0">
+			<Border BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Right" Width="100">
+			<Label Name="LiveDateLabel"
+				  Content="DATE"
+				  HorizontalAlignment="Center"
+				  VerticalAlignment="Top"
+			  
+				  FontWeight="Bold"
+				  Foreground="Black" />
+			</Border>
+			<Border BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Right" Width="100">
+				   <Label Name="LiveTimeLabel"
+			   Content="TIME"
+			   HorizontalAlignment="Center"
+			   VerticalAlignment="Top"
+			  
+			   FontWeight="Bold" 
+			   Foreground="Black" />
+			</Border>
 	</StackPanel>
 		<StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
 			<Border BorderBrush="Gray" HorizontalAlignment="Center">
@@ -41,7 +62,7 @@
 		</StackPanel>
 	<uc:PanelWithButtons Grid.Column="1" Grid.Row="1" Orientation="Vertical"></uc:PanelWithButtons>
 	<uc:PanelWithButtons Grid.Column="1" Grid.Row="2" Orientation="Horizontal"></uc:PanelWithButtons>
-
+		
 	</Grid>
 	
 	
