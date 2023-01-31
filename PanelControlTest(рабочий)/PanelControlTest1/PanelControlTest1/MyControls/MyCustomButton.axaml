@@ -1,0 +1,34 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:PanelControlTest1.MyControls">
+  <Design.PreviewWith>
+	  <controls:MyCustomButton />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|MyCustomButton">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+		  <Button Background="#486d92" Foreground="White" Width="128" Height="70"
+						   VerticalContentAlignment="Center"
+						   HorizontalContentAlignment="Center"
+						   CornerRadius="0"
+						  Command="{TemplateBinding Command}">
+
+			  <StackPanel >
+				  <Border Width="12" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center">
+					  <TextBlock Background="Gray" Width="16"
+							  Height="16"
+							  FontSize="11"
+							  Text="{TemplateBinding FirstText}"
+									></TextBlock>
+				  </Border>
+				  <Border Width="128" Height="70">
+					  <TextBlock HorizontalAlignment="Center" Text="{TemplateBinding SecondText}" TextWrapping="Wrap"></TextBlock>
+				  </Border>
+			  </StackPanel>
+		  </Button>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

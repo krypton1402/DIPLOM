@@ -1,0 +1,130 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:usercontrol="clr-namespace:PanelControlTest1.Views"
+		xmlns:MyButtons="clr-namespace:PanelControlTest1.MyControls"
+        x:Class="PanelControlTest1.Views.MainWindow"
+		Icon="/Assets/avalonia-logo.ico"
+        Width="1024" Height="768"
+		WindowState="Normal"
+		CanResize="False"
+        Title="Avalonia PanelControl">
+
+
+	<Window.Styles>
+		<StyleInclude Source = "avares://PanelControlTest1/MyControls/MyCustomButton.axaml"/>
+	</Window.Styles>
+	<!-- MainGrid -->
+	<Grid Name="MainGrid" RowDefinitions="auto, *"  Background="Beige">
+		<Grid ColumnDefinitions="auto" RowDefinitions="54">
+		<Border Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="Beige">
+				
+			<Image Stretch="Fill" Name="logo" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/Assets/logo.png" />
+			
+			</Border>
+		</Grid>
+		<!-- StatusBar -->
+		<Grid RowDefinitions="auto, *">
+			
+			<Border Grid.Row="1" HorizontalAlignment="Stretch"
+					BorderBrush="Black"
+					BorderThickness="1"
+					Width="1024"
+			        Height="30"></Border>
+			
+			<!--ДАТА И ВРЕМЯ-->
+			<StackPanel Grid.Row="0">
+				<Border BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Right" Width="128">
+					<Label Name="LiveDateLabel"
+						  Content="DATE"
+						  HorizontalAlignment="Center"
+						  VerticalAlignment="Top"
+			  
+						  FontWeight="Bold"
+						  Foreground="Black" />
+				</Border>
+				<Border BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Right" Width="128">
+					<Label Name="LiveTimeLabel"
+				Content="TIME"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Top"
+			  
+				FontWeight="Bold"
+				Foreground="Black" />
+				</Border>
+			</StackPanel>
+		</Grid>
+		
+		<!--Panels -->
+		<DockPanel Name="PanelDock" Grid.Row="1" Background="Azure">
+			
+			<!-- VerticalPanel -->
+		<StackPanel x:Name="panelControl2" Orientation ="Vertical" DockPanel.Dock="Right">
+			<MyButtons:MyCustomButton FirstText="S1" SecondText="PLC-редактор"/>
+			<MyButtons:MyCustomButton Command="{Binding Calc}" FirstText="S2" SecondText="Калькулятор"/>
+			<MyButtons:MyCustomButton FirstText="S3" SecondText="OPC-сервер"/>
+			<MyButtons:MyCustomButton FirstText="S4" SecondText=""/>
+			<MyButtons:MyCustomButton FirstText="S5" SecondText="Утилита 
+									  'Текст в G-code'"/>
+			<MyButtons:MyCustomButton FirstText="S6" SecondText=""/>
+			<MyButtons:MyCustomButton FirstText="S7" SecondText=""/>
+		    <MyButtons:MyCustomButton FirstText="S8" SecondText="Показать вирт. панель"/>
+		</StackPanel>
+			
+			
+			
+		<!-- HorizontalPanel(Start) -->
+		<StackPanel IsEnabled="{Binding EnableStartPanel}" x:Name="StartControl1" Orientation ="Horizontal" IsVisible="{Binding VisibleStartPanel}" DockPanel.Dock="Bottom">
+			<MyButtons:MyCustomButton Command="{Binding Auto}" FirstText="F2" SecondText="Авто"/>
+			<MyButtons:MyCustomButton FirstText="F3" SecondText="Ручной ввод"/>
+			<MyButtons:MyCustomButton FirstText="F4" SecondText="Ручной(Jog)"/>
+			<MyButtons:MyCustomButton FirstText="F5" SecondText=""/>
+			<MyButtons:MyCustomButton FirstText="F6" SecondText="Управление инструментами"/>
+			<MyButtons:MyCustomButton FirstText="F7" SecondText="Привязка осей"/>
+			<MyButtons:MyCustomButton FirstText="F8" SecondText="Сервис"/>
+			<MyButtons:MyCustomButton FirstText="F9" SecondText="Выход"/>
+		</StackPanel>
+			
+			<!-- HorizontalPanel(Auto) -->
+			<StackPanel IsEnabled="{Binding EnableAutoPanel}" IsVisible="{Binding VisibleAutoPanel}" x:Name="AutoControl1" Orientation ="Horizontal" DockPanel.Dock="Bottom">
+				<MyButtons:MyCustomButton FirstText="F2" SecondText="Выбор программы"/>
+				<MyButtons:MyCustomButton FirstText="F3" SecondText="3D визуализация обработки"/>
+				<MyButtons:MyCustomButton FirstText="F4" SecondText=""/>
+				<MyButtons:MyCustomButton FirstText="F5" SecondText="Смещение нуля"/>
+				<MyButtons:MyCustomButton FirstText="F6" SecondText="коррекция инструмента"/>
+				<MyButtons:MyCustomButton FirstText="F7" SecondText="Смена экрана"/>
+				<MyButtons:MyCustomButton FirstText="F8" SecondText="Запуск с определенного кадра"/>
+				<MyButtons:MyCustomButton Command="{Binding Back}" FirstText="F9" SecondText="Выход"/>
+			</StackPanel>
+			<!-- StatusBar -->
+			<Border HorizontalAlignment="Stretch"
+					BorderBrush="Black"
+					BorderThickness="1"
+			        Height="30"
+					DockPanel.Dock="Bottom"></Border>
+			<!--Координатная панель-->
+			<Border 
+					BorderThickness="1"
+					BorderBrush="Black"
+					Background="AliceBlue"
+					HorizontalAlignment="Left" VerticalAlignment="Top"
+					Margin="2,2,2,2"
+					IsVisible="{Binding VisibleAutoPanel}"
+					IsEnabled="{Binding EnableAutoPanel}">
+				<usercontrol:CoordinatePanel HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			</Border>
+			<Border
+					BorderThickness="1"
+					BorderBrush="Black"
+					Background="AliceBlue"
+					HorizontalAlignment="Right" VerticalAlignment="Bottom"
+					Margin="2,2,2,2"
+					IsVisible="{Binding VisibleAutoPanel}"
+					IsEnabled="{Binding EnableAutoPanel}">
+				<usercontrol:FSPanel/>
+			</Border>
+	</DockPanel>
+		
+</Grid>
+		
+		
+</Window>

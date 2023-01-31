@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="PanelControlTest1/MyControls/MyCustomButton.axaml" value="PanelControlTest1/PanelControlTest1.csproj" />
+        <entry key="PanelControlTest1/MyControls/MyCustomButtonTemplate.axaml" value="PanelControlTest1/PanelControlTest1.csproj" />
+        <entry key="PanelControlTest1/Views/MainWindow.axaml" value="PanelControlTest1/PanelControlTest1.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,140 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
+			 Width="300" Height="300"
+             x:Class="PanelControlTest1.Views.CoordinatePanel">
+  <Grid ColumnDefinitions="*,*,*" RowDefinitions="auto,auto,auto,auto">
+	  <Border Width="80" Background="#486d92" Grid.Column="0" Grid.Row="0" Margin="2,2,2,2">
+		  <Label Name="SKS"
+				Content="СКС"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Top"
+				FontWeight="Bold"
+				Foreground="White" />
+	  </Border>
+	  <Border Width="80" Background="#486d92" Grid.Column="1" Grid.Row="0" Margin="2,2,2,2">
+		  <Label Name="CurrentPos"
+				Content="Текущая"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Top"
+			  
+				FontWeight="Bold"
+			    Foreground="White" />
+	  </Border>
+	  <Border Width="80" Background="#486d92" Grid.Column="2" Grid.Row="0" Margin="2,2,2,2">
+		  <Label Name="EndPos"
+				Content="Конечная"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Top"
+			  
+				FontWeight="Bold"
+			    Foreground="White" />
+	  </Border>
+	  <!--X-->
+	  <Border Grid.Column="0" Grid.Row="1" Width="80" Background="#486d92"  Margin="2,2,2,2">
+		  <Grid Name="LabelGrid" ColumnDefinitions="auto,*">
+		  <Label Grid.Column="0" Name="X"
+				Content="X"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Top"
+				FontWeight="Bold"
+				Foreground="White" />
+			  <Label Grid.Column="1" Name="MM"
+				Content="мм"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				FontWeight="Bold"
+			    FontSize="7"
+				Foreground="White" />
+		  </Grid>
+	  </Border>
+	  <!--Y-->
+	  <Border Grid.Column="0" Grid.Row="2" Width="80" Background="#486d92"  Margin="2,2,2,2">
+		  <Grid Name="LabelGrid1" ColumnDefinitions="auto,*">
+			  <Label Grid.Column="0" Name="Y"
+					Content="Y"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					FontWeight="Bold"
+					Foreground="White" />
+			  <Label Grid.Column="1" Name="MM1"
+				Content="мм"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				FontWeight="Bold"
+			    FontSize="7"
+				Foreground="White" />
+		  </Grid>
+	  </Border>
+	  <!--Z-->
+	  <Border Grid.Column="0" Grid.Row="3" Width="80" Background="#486d92"  Margin="2,2,2,2">
+		  <Grid Name="LabelGrid2" ColumnDefinitions="auto,*">
+			  <Label Grid.Column="0" Name="Z"
+					Content="Z"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					FontWeight="Bold"
+					Foreground="White" />
+			  <Label Grid.Column="1" Name="MM2"
+				Content="мм"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				FontWeight="Bold"
+			    FontSize="7"
+				Foreground="White" />
+		  </Grid>
+	  </Border>
+	  <!--CurrentPosCoordinate-->
+	  <Label Grid.Column="1" Grid.Row="1" Name="CurrentXCoord"
+		  Content="CURRENTX"
+		  HorizontalAlignment="Center"
+		  VerticalAlignment="Center"
+		  FontSize="11"	   
+		  FontWeight="Regular"
+		  Foreground="Black" />
+	  
+	  <Label Grid.Column="1" Grid.Row="2" Name="CurrentYCoord"
+		  Content="CURRENTY"
+		  HorizontalAlignment="Center"
+		  VerticalAlignment="Center"
+		  FontSize="11"
+		  FontWeight="Regular"
+		  Foreground="Black" />
+	  
+	  <Label Grid.Column="1" Grid.Row="3" Name="CurrentZCoord"
+		  Content="CURRENTZ"
+		  HorizontalAlignment="Center"
+		  VerticalAlignment="Center"
+		  FontSize="11"
+		  FontWeight="Regular"
+		  Foreground="Black" />
+
+	  <!--EndPosCoordinate-->
+	  <!--Сюда будет выполняться привязка из модели-->
+	  <Label Grid.Column="2" Grid.Row="1" Name="EndXCoord"
+		  Content="ENDX" 
+		  HorizontalAlignment="Center"
+		  VerticalAlignment="Center"
+		  FontSize="11"
+		  FontWeight="Regular"
+		  Foreground="Black" />
+
+	  <Label Grid.Column="2" Grid.Row="2" Name="EndYCoord"
+		  Content="ENDY"
+		  HorizontalAlignment="Center"
+		  VerticalAlignment="Center"
+		  FontSize="11"
+		  FontWeight="Regular"
+		  Foreground="Black" />
+
+	  <Label Grid.Column="2" Grid.Row="3" Name="EndZCoord"
+		  Content="ENDZ"
+		  HorizontalAlignment="Center"
+		  VerticalAlignment="Center"
+		  FontSize="11"
+		  FontWeight="Regular"
+		  Foreground="Black" />
+  </Grid>
+</UserControl>
