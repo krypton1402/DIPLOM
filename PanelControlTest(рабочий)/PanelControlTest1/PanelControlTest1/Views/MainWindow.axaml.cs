@@ -3,8 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
-using PanelControlTest1.Models;
-using PanelControlTest1.Services;
+
 using PanelControlTest1.ViewModels;
 using ReactiveUI;
 using System;
@@ -14,16 +13,16 @@ namespace PanelControlTest1.Views
 {
     public partial class MainWindow : Window
     {
-        Database db;
-        
-        public PanelControlListViewModel List { get; }
+     
         public MainWindow()
-        {db = new Database();
+        {
             InitializeComponent();
             DispatcherTimer LiveTime = new DispatcherTimer();
+            CoordClass cl = new CoordClass();
             LiveTime.Interval = TimeSpan.FromSeconds(1);
             LiveTime.Tick += timer_Tick;
             LiveTime.Start();
+            //cl.Connecting();
 
             void timer_Tick(object sender, EventArgs e)
             {

@@ -5,11 +5,11 @@ using PanelControlTest1.Models;
 using PanelControlTest1.Services;
 using PanelControlTest1.ViewModels;
 using PanelControlTest1.Views;
-
 namespace PanelControlTest1
 {
     public partial class App : Application
     {
+        
         public override void Initialize()
         {
             AvaloniaXamlLoader.Load(this);
@@ -28,6 +28,8 @@ namespace PanelControlTest1
                     DataContext = new MainWindowViewModel(),
                 };
             }
+
+            
         }
     }
 }

@@ -1,12 +1,9 @@
-using Avalonia.Controls;
-using PanelControlTest1.Models;
-using PanelControlTest1.Views;
 using ReactiveUI;
 using System;
 using System.Diagnostics;
 using System.Reactive;
-using System.Windows.Input;
-using static Avalonia.OpenGL.GlInterface;
+using PcNcCommon;
+using PcNcCommClient;
 
 namespace PanelControlTest1.ViewModels
 {
@@ -19,6 +16,12 @@ namespace PanelControlTest1.ViewModels
         public bool? enableStart = true;
         public bool? visibleAuto = false;
         public bool? enableAuto = false;
+        public bool? enableConn = false;
+
+
+        //NC переменные
+
+         CoordClass cl = new CoordClass();
 
         //Видимость кнопок
         public bool VisibleAutoPanel
@@ -41,6 +44,12 @@ namespace PanelControlTest1.ViewModels
             get => (bool)enableStart;
             set => this.RaiseAndSetIfChanged(ref enableStart, value);
         }
+        public bool EnableConnect
+        {
+            get => (bool)enableConn;
+            set => this.RaiseAndSetIfChanged(ref enableConn, value);
+        }
+
         public void Auto()
         {
             if (VisibleAutoPanel == false)
@@ -50,6 +59,7 @@ namespace PanelControlTest1.ViewModels
             if (EnableAutoPanel == false)
             {
                 EnableAutoPanel = true;
+                //cl.Timer_Tick();
             }
             VisibleStartPanel = false;
             EnableStartPanel = false;
@@ -80,14 +90,15 @@ namespace PanelControlTest1.ViewModels
            
             AutoCommand = ReactiveCommand.Create(Auto);
             StartCommand = ReactiveCommand.Create(Back);
-            StartCommand = ReactiveCommand.Create(Auto);
             CalcCommand = ReactiveCommand.Create(Calc);
+            //ConnectCommand = ReactiveCommand.Create(Connect);
 
         }
 
         public ReactiveCommand<Unit, Unit> AutoCommand { get; }
         public ReactiveCommand<Unit, Unit> StartCommand { get; }
         public ReactiveCommand<Unit, Unit> CalcCommand { get; }
+        //public ReactiveCommand<Unit, Unit> ConnectCommand { get; }
         //       public ReactiveCommand<Unit, Unit> DisableButtons { get; }
 
 
@@ -97,10 +108,20 @@ namespace PanelControlTest1.ViewModels
             private set => this.RaiseAndSetIfChanged(ref content, value);
         }
 
-        public PanelControlListViewModel List { get; set; }
+        public void Connect()
+        {
+
+            cl.Connecting();
+        }
 
 
-     
+
+
+
+
+
+
+
 
     }
     

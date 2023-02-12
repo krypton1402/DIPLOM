@@ -14,9 +14,10 @@
 		<StyleInclude Source = "avares://PanelControlTest1/MyControls/MyCustomButton.axaml"/>
 	</Window.Styles>
 	<!-- MainGrid -->
-	<Grid Name="MainGrid" RowDefinitions="auto, *"  Background="Beige">
+	<Grid Name="MainGrid" RowDefinitions="auto, *">
 		<Grid ColumnDefinitions="auto" RowDefinitions="54">
-		<Border Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="Beige">
+			
+		<Border Grid.Column="0" BorderThickness="1" BorderBrush="Black">
 				
 			<Image Stretch="Fill" Name="logo" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/Assets/logo.png" />
 			
@@ -24,7 +25,7 @@
 		</Grid>
 		<!-- StatusBar -->
 		<Grid RowDefinitions="auto, *">
-			
+			<Button Grid.Row="1" Command="{Binding Connect}" IsEnabled="{Binding enableConn}" Content="{Binding textBtn}"></Button>
 			<Border Grid.Row="1" HorizontalAlignment="Stretch"
 					BorderBrush="Black"
 					BorderThickness="1"
@@ -55,7 +56,7 @@
 		</Grid>
 		
 		<!--Panels -->
-		<DockPanel Name="PanelDock" Grid.Row="1" Background="Azure">
+		<DockPanel Name="PanelDock" Grid.Row="1">
 			
 			<!-- VerticalPanel -->
 		<StackPanel x:Name="panelControl2" Orientation ="Vertical" DockPanel.Dock="Right">
