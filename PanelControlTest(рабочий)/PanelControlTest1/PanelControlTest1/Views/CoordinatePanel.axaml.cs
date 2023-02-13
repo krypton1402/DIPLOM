@@ -17,7 +17,6 @@ namespace PanelControlTest1.Views
         {
         
             InitializeComponent();
-            DataContext = new CoordClass();
            
         }
 
