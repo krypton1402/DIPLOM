@@ -2,10 +2,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:usercontrol="clr-namespace:PanelControlTest1.Views"
 		xmlns:MyButtons="clr-namespace:PanelControlTest1.MyControls"
-        x:Class="PanelControlTest1.Views.MainWindow"
+		xmlns:viewModels="clr-namespace:PanelControlTest1.ViewModels"
+		x:Class="PanelControlTest1.Views.MainWindow"
 		Icon="/Assets/avalonia-logo.ico"
         Width="1024" Height="768"
 		WindowState="Normal"
+        x:CompileBindings="True"
+        x:DataType="viewModels:MainWindowViewModel"
 		CanResize="False"
         Title="Avalonia PanelControl">
 
@@ -25,7 +28,7 @@
 		</Grid>
 		<!-- StatusBar -->
 		<Grid RowDefinitions="auto, *">
-			<Button Grid.Row="1" Command="{Binding Connect}" IsEnabled="{Binding enableConn}" Content="Connect/Disconnect"></Button>
+			<Button Grid.Row="1" Command="{Binding ConnectCommand}" IsEnabled="{Binding EnableConnect}" Content="Connect/Disconnect"></Button>
 			<Border Grid.Row="1" HorizontalAlignment="Stretch"
 					BorderBrush="Black"
 					BorderThickness="1"
@@ -61,7 +64,7 @@
 			<!-- VerticalPanel -->
 		<StackPanel x:Name="panelControl2" Orientation ="Vertical" DockPanel.Dock="Right">
 			<MyButtons:MyCustomButton FirstText="S1" SecondText="PLC-редактор"/>
-			<MyButtons:MyCustomButton Command="{Binding Calc}" FirstText="S2" SecondText="Калькулятор"/>
+			<MyButtons:MyCustomButton Command="{Binding CalcCommand}" FirstText="S2" SecondText="Калькулятор"/>
 			<MyButtons:MyCustomButton FirstText="S3" SecondText="OPC-сервер"/>
 			<MyButtons:MyCustomButton FirstText="S4" SecondText=""/>
 			<MyButtons:MyCustomButton FirstText="S5" SecondText="Утилита 
@@ -75,7 +78,7 @@
 			
 		<!-- HorizontalPanel(Start) -->
 		<StackPanel IsEnabled="{Binding EnableStartPanel}" x:Name="StartControl1" Orientation ="Horizontal" IsVisible="{Binding VisibleStartPanel}" DockPanel.Dock="Bottom">
-			<MyButtons:MyCustomButton Command="{Binding Auto}" FirstText="F2" SecondText="PRESS THIS BUTTON AND U SEE COORD PANEL"/>
+			<MyButtons:MyCustomButton Command="{Binding AutoCommand}" FirstText="F2" SecondText="PRESS THIS BUTTON AND U SEE COORD PANEL"/>
 			<MyButtons:MyCustomButton FirstText="F3" SecondText="Ручной ввод"/>
 			<MyButtons:MyCustomButton FirstText="F4" SecondText="Ручной(Jog)"/>
 			<MyButtons:MyCustomButton FirstText="F5" SecondText=""/>
@@ -94,7 +97,7 @@
 				<MyButtons:MyCustomButton FirstText="F6" SecondText="коррекция инструмента"/>
 				<MyButtons:MyCustomButton FirstText="F7" SecondText="Смена экрана"/>
 				<MyButtons:MyCustomButton FirstText="F8" SecondText="Запуск с определенного кадра"/>
-				<MyButtons:MyCustomButton Command="{Binding Back}" FirstText="F9" SecondText="Exit"/>
+				<MyButtons:MyCustomButton Command="{Binding BackCommand}" FirstText="F9" SecondText="Exit"/>
 			</StackPanel>
 			<!-- StatusBar -->
 			<Border HorizontalAlignment="Stretch"
@@ -111,7 +114,8 @@
 					Margin="2,2,2,2"
 					IsVisible="{Binding VisibleAutoPanel}"
 					IsEnabled="{Binding EnableAutoPanel}">
-				<usercontrol:CoordinatePanel HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				<usercontrol:CoordinatePanel HorizontalAlignment="Center" VerticalAlignment="Center"
+				                             DataContext="{Binding CL}"/>
 			</Border>
 			<Border
 					BorderThickness="1"
