@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
-using PanelControlTest1.Models;
+using PanelControlTest1.ViewModels;
 using PcNcCommClient;
 using PcNcCommon;
 using System;
@@ -16,18 +16,9 @@ namespace PanelControlTest1.Views
         public CoordinatePanel()
         {
         
-           
-            
             InitializeComponent();
             DataContext = new CoordClass();
            
-            
-                
-            
-            
-            
-           
-
         }
 
         private void InitializeComponent()

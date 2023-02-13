@@ -19,11 +19,11 @@ namespace PanelControlTest1.ViewModels
         public bool? enableConn = false;
 
 
-        //NC переменные
+        //NC values NC - is the client my application connects to and where the data comes from
 
-         CoordClass cl = new CoordClass();
+        CoordClass cl = new CoordClass();
 
-        //Видимость кнопок
+        //Button visibility
         public bool VisibleAutoPanel
         {
             get => (bool)visibleAuto;
@@ -79,7 +79,7 @@ namespace PanelControlTest1.ViewModels
             EnableAutoPanel = false;
         }
 
-        public void Calc() //!!!НЕ БУДЕТ РАБОТАТЬ НА ЛИНУКСЕ ЕСТЕСТВЕННО, нужно что то универсальное, это в конце сделаю, так для теста
+        public void Calc() //!!!НЕ БУДЕТ РАБОТАТЬ НА ЛИНУКСЕ ЕСТЕСТВЕННО, нужно что то универсальное, это в конце сделаю, так для теста//IT WON'T WORK ON LINUX, OF COURSE, you need something universal, I'll do it in the end, so for the test
         {
             Process.Start("C:/Windows/system32/win32calc.exe");
         }

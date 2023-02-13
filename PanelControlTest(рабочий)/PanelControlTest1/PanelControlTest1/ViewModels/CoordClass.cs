@@ -17,11 +17,9 @@ namespace PanelControlTest1.ViewModels
         public DispatcherTimer timer;
         private int _activeChanIndex = 0;
 
-        private double Xpos, Ypos, Zpos;
-
-        private double xPos = 10;
-        private double yPos = 20;
-        private double zPos = 30;
+        private double xPos;
+        private double yPos;
+        private double zPos;
         public double XPos
         {
             get => xPos;
@@ -40,7 +38,7 @@ namespace PanelControlTest1.ViewModels
         }
 
 
-        //Подключение к NC
+        //Подключение к NC//Connecting to NC
         public void Connecting()
         {
             if (!isClientConnected)
@@ -61,7 +59,7 @@ namespace PanelControlTest1.ViewModels
             if (iNcClient == null)
             {
                 var messageWindow1 = MessageBox.Avalonia.MessageBoxManager
-   .GetMessageBoxStandardWindow("title1", "Не создан приёмопередатчик");
+   .GetMessageBoxStandardWindow("title1", "Не создан приёмопередатчик/No transceiver has been created");
                 messageWindow1.Show();
 
                 // MessageBox.Show("Не создан приёмопередатчик");
@@ -74,7 +72,7 @@ namespace PanelControlTest1.ViewModels
             if (client == null)
             {
                 var messageWindow2 = MessageBox.Avalonia.MessageBoxManager
-  .GetMessageBoxStandardWindow("title2", "Не создан терминальный клиент");
+  .GetMessageBoxStandardWindow("title2", "Не создан терминальный клиент/No terminal client has been created");
                 messageWindow2.Show();
                 // MessageBox.Show("Не создан терминальный клиент");
                 return false;
@@ -95,7 +93,7 @@ namespace PanelControlTest1.ViewModels
             if (error != ErrorCodes.NoError)
             {
                 var messageWindow3 = MessageBox.Avalonia.MessageBoxManager
-  .GetMessageBoxStandardWindow("title2", "Ошибка при инициализации терминального клиента или ошибка соединения");
+  .GetMessageBoxStandardWindow("title2", "Ошибка при инициализации терминального клиента или ошибка соединения/Terminal client initialization error or connection error");
                 messageWindow3.Show();
                 // MessageBox.Show("Ошибка при инициализации терминального клиента или ошибка соединения");
                 client.ChangeServerState -= new AbstractServer.OnChangeServerState(client_ChangeServerState);
@@ -240,14 +238,14 @@ namespace PanelControlTest1.ViewModels
             //int filepos, level, subprog_version;
             //string filename;
 
-            client.GetAxisDrPosValue(0, out XPos);
-            xPos = Xpos;
+            client.GetAxisDrPosValue(0, out xPos);
+            XPos = xPos;
             //Xpos.ToString();
             client.GetAxisDrPosValue(1, out yPos);
-            yPos = Ypos;
+            YPos = yPos;
             //Ypos.ToString();
             client.GetAxisDrPosValue(2, out zPos);
-            zPos = Zpos;
+            ZPos = zPos;
             //Zpos.ToString();
 
 

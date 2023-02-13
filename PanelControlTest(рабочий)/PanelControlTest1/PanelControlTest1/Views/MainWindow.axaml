@@ -25,14 +25,14 @@
 		</Grid>
 		<!-- StatusBar -->
 		<Grid RowDefinitions="auto, *">
-			<Button Grid.Row="1" Command="{Binding Connect}" IsEnabled="{Binding enableConn}" Content="{Binding textBtn}"></Button>
+			<Button Grid.Row="1" Command="{Binding Connect}" IsEnabled="{Binding enableConn}" Content="Connect/Disconnect"></Button>
 			<Border Grid.Row="1" HorizontalAlignment="Stretch"
 					BorderBrush="Black"
 					BorderThickness="1"
 					Width="1024"
 			        Height="30"></Border>
 			
-			<!--ДАТА И ВРЕМЯ-->
+			<!--Date and Time-->
 			<StackPanel Grid.Row="0">
 				<Border BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Right" Width="128">
 					<Label Name="LiveDateLabel"
@@ -75,7 +75,7 @@
 			
 		<!-- HorizontalPanel(Start) -->
 		<StackPanel IsEnabled="{Binding EnableStartPanel}" x:Name="StartControl1" Orientation ="Horizontal" IsVisible="{Binding VisibleStartPanel}" DockPanel.Dock="Bottom">
-			<MyButtons:MyCustomButton Command="{Binding Auto}" FirstText="F2" SecondText="Авто"/>
+			<MyButtons:MyCustomButton Command="{Binding Auto}" FirstText="F2" SecondText="PRESS THIS BUTTON AND U SEE COORD PANEL"/>
 			<MyButtons:MyCustomButton FirstText="F3" SecondText="Ручной ввод"/>
 			<MyButtons:MyCustomButton FirstText="F4" SecondText="Ручной(Jog)"/>
 			<MyButtons:MyCustomButton FirstText="F5" SecondText=""/>
@@ -94,7 +94,7 @@
 				<MyButtons:MyCustomButton FirstText="F6" SecondText="коррекция инструмента"/>
 				<MyButtons:MyCustomButton FirstText="F7" SecondText="Смена экрана"/>
 				<MyButtons:MyCustomButton FirstText="F8" SecondText="Запуск с определенного кадра"/>
-				<MyButtons:MyCustomButton Command="{Binding Back}" FirstText="F9" SecondText="Выход"/>
+				<MyButtons:MyCustomButton Command="{Binding Back}" FirstText="F9" SecondText="Exit"/>
 			</StackPanel>
 			<!-- StatusBar -->
 			<Border HorizontalAlignment="Stretch"
@@ -102,7 +102,7 @@
 					BorderThickness="1"
 			        Height="30"
 					DockPanel.Dock="Bottom"></Border>
-			<!--Координатная панель-->
+			<!--Coordinate Panel-->
 			<Border 
 					BorderThickness="1"
 					BorderBrush="Black"

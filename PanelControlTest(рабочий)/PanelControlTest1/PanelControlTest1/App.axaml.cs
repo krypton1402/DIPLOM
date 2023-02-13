@@ -1,8 +1,6 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using PanelControlTest1.Models;
-using PanelControlTest1.Services;
 using PanelControlTest1.ViewModels;
 using PanelControlTest1.Views;
 namespace PanelControlTest1

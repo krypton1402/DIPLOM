@@ -4,7 +4,6 @@ using Avalonia.ReactiveUI;
 using PcNcCommClient;
 using PcNcCommon;
 using System;
-using PanelControlTest1.Models;
 namespace PanelControlTest1
 {
     internal class Program

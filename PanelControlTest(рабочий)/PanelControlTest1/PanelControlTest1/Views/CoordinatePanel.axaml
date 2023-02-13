@@ -113,7 +113,7 @@
 		  Foreground="Black" />
 
 	  <!--EndPosCoordinate-->
-	  <!--Сюда будет выполняться привязка из модели-->
+	  <!--Binding will be performed here-->
 	  <Label Grid.Column="2" Grid.Row="1" Name="EndXCoord"
 		  Content="ENDX" 
 		  HorizontalAlignment="Center"
