@@ -2,12 +2,13 @@ using ReactiveUI;
 using System;
 using System.Diagnostics;
 using System.Reactive;
+using System.Windows.Input;
 using PcNcCommon;
 using PcNcCommClient;
 
 namespace PanelControlTest1.ViewModels
 {
-    class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase
     {
        
 
@@ -16,13 +17,16 @@ namespace PanelControlTest1.ViewModels
         public bool? enableStart = true;
         public bool? visibleAuto = false;
         public bool? enableAuto = false;
-        public bool? enableConn = false;
+        public bool? enableConn = true;
 
 
         //NC values NC - is the client my application connects to and where the data comes from
 
         CoordClass cl = new CoordClass();
 
+        // We need a public accessor to cl
+        public CoordClass CL => cl; 
+        
         //Button visibility
         public bool VisibleAutoPanel
         {
@@ -79,15 +83,17 @@ namespace PanelControlTest1.ViewModels
             EnableAutoPanel = false;
         }
 
-        public void Calc() //!!!ÍÅ ÁÓÄÅÒ ÐÀÁÎÒÀÒÜ ÍÀ ËÈÍÓÊÑÅ ÅÑÒÅÑÒÂÅÍÍÎ, íóæíî ÷òî òî óíèâåðñàëüíîå, ýòî â êîíöå ñäåëàþ, òàê äëÿ òåñòà//IT WON'T WORK ON LINUX, OF COURSE, you need something universal, I'll do it in the end, so for the test
+        public void Calc() //!!!ÃÃ… ÃÃ“Ã„Ã…Ã’ ÃÃ€ÃÃŽÃ’Ã€Ã’Ãœ ÃÃ€ Ã‹ÃˆÃÃ“ÃŠÃ‘Ã… Ã…Ã‘Ã’Ã…Ã‘Ã’Ã‚Ã…ÃÃÃŽ, Ã­Ã³Ã¦Ã­Ã® Ã·Ã²Ã® Ã²Ã® Ã³Ã­Ã¨Ã¢Ã¥Ã°Ã±Ã Ã«Ã¼Ã­Ã®Ã¥, Ã½Ã²Ã® Ã¢ ÃªÃ®Ã­Ã¶Ã¥ Ã±Ã¤Ã¥Ã«Ã Ã¾, Ã²Ã Ãª Ã¤Ã«Ã¿ Ã²Ã¥Ã±Ã²Ã //IT WON'T WORK ON LINUX, OF COURSE, you need something universal, I'll do it in the end, so for the test
         {
             Process.Start("C:/Windows/system32/win32calc.exe");
         }
 
         public MainWindowViewModel()
         {
-           
-           
+            ConnectCommand = ReactiveCommand.Create(Connect);
+            BackCommand = ReactiveCommand.Create(Back);
+
+
             AutoCommand = ReactiveCommand.Create(Auto);
             StartCommand = ReactiveCommand.Create(Back);
             CalcCommand = ReactiveCommand.Create(Calc);
@@ -108,11 +114,14 @@ namespace PanelControlTest1.ViewModels
             private set => this.RaiseAndSetIfChanged(ref content, value);
         }
 
-        public void Connect()
+        private void Connect()
         {
 
             cl.Connecting();
         }
+
+        public ICommand ConnectCommand { get; }
+        public ICommand BackCommand { get; }
 
 
 
