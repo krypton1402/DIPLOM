@@ -32,7 +32,6 @@ namespace PanelControlTest1.Views
 #if DEBUG
             this.AttachDevTools();
 #endif
-            this.DataContext = this;
             
         }
         
