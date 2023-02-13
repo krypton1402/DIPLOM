@@ -17,9 +17,9 @@ namespace PanelControlTest1.ViewModels
         public DispatcherTimer timer;
         private int _activeChanIndex = 0;
 
-        private double xPos;
-        private double yPos;
-        private double zPos;
+        private double xPos = 20;
+        private double yPos = 30;
+        private double zPos = 40;
         public double XPos
         {
             get => xPos;
@@ -49,6 +49,17 @@ namespace PanelControlTest1.ViewModels
 
         private bool Connect(string targetName)
         {
+            var timer = new DispatcherTimer()
+            {
+Interval = TimeSpan.FromSeconds(2)
+            };
+
+            timer.Tick += Timer_Tick;
+            
+            timer.Start();
+
+            return true;
+            
             if (isClientConnected)
                 return false;
 
@@ -235,19 +246,14 @@ namespace PanelControlTest1.ViewModels
         public void Timer_Tick(object sender, EventArgs e)
         {
 
+            Random rnd = new Random();
+
             //int filepos, level, subprog_version;
             //string filename;
 
-            client.GetAxisDrPosValue(0, out xPos);
-            XPos = xPos;
-            //Xpos.ToString();
-            client.GetAxisDrPosValue(1, out yPos);
-            YPos = yPos;
-            //Ypos.ToString();
-            client.GetAxisDrPosValue(2, out zPos);
-            ZPos = zPos;
-            //Zpos.ToString();
-
+            XPos = rnd.Next(100);
+            YPos = rnd.Next(100, 200);
+            ZPos = rnd.Next(200, 300);
 
             //this.client.GetFilePosition(1, out filename, out filepos, out level, out subprog_version);
             //filePosTextBox.Text = "Channel number: " + 1 + Environment.NewLine + "FileName: " + filename + Environment.NewLine + "File position: " + filepos + Environment.NewLine + "Level: " + level + Environment.NewLine + "Subprog version: " + subprog_version;
