@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Reactive;
 using PcNcCommon;
 using PcNcCommClient;
-
+using System.Windows.Input;
 namespace PanelControlTest1.ViewModels
 {
     class MainWindowViewModel : ViewModelBase
@@ -16,13 +16,13 @@ namespace PanelControlTest1.ViewModels
         public bool? enableStart = true;
         public bool? visibleAuto = false;
         public bool? enableAuto = false;
-        public bool? enableConn = false;
+        public bool? enableConn = true;
 
 
         //NC values NC - is the client my application connects to and where the data comes from
 
         CoordClass cl = new CoordClass();
-
+        public CoordClass CL => cl;
         //Button visibility
         public bool VisibleAutoPanel
         {
@@ -91,15 +91,16 @@ namespace PanelControlTest1.ViewModels
             AutoCommand = ReactiveCommand.Create(Auto);
             StartCommand = ReactiveCommand.Create(Back);
             CalcCommand = ReactiveCommand.Create(Calc);
-            //ConnectCommand = ReactiveCommand.Create(Connect);
+            ConnectCommand = ReactiveCommand.Create(Connect);
+            BackCommand = ReactiveCommand.Create(Back);
 
         }
 
         public ReactiveCommand<Unit, Unit> AutoCommand { get; }
         public ReactiveCommand<Unit, Unit> StartCommand { get; }
         public ReactiveCommand<Unit, Unit> CalcCommand { get; }
-        //public ReactiveCommand<Unit, Unit> ConnectCommand { get; }
-        //       public ReactiveCommand<Unit, Unit> DisableButtons { get; }
+        public ICommand ConnectCommand { get; }
+        public ICommand BackCommand { get; }
 
 
         public ViewModelBase Content
@@ -108,12 +109,12 @@ namespace PanelControlTest1.ViewModels
             private set => this.RaiseAndSetIfChanged(ref content, value);
         }
 
-        public void Connect()
+        private void Connect()
         {
 
             cl.Connecting();
         }
-
+       
 
 
 

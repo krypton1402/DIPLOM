@@ -9,32 +9,31 @@ namespace PanelControlTest1.ViewModels
 {
     public class CoordClass : ReactiveObject
     {
-        public INcClient iNcClient = null;
-        public AbstractCommClientEx client = null;
+        public INcClient? iNcClient = null;
+        public AbstractCommClientEx? client = null;
         public bool isClientConnected = false;
-        private ToolTableData toolTable;
-        string x, y, z;
-        public DispatcherTimer timer;
+        private ToolTableData? toolTable;
+        public DispatcherTimer? timer;
         private int _activeChanIndex = 0;
 
-        private double xPos;
-        private double yPos;
-        private double zPos;
+        private double xPos, yPos, zPos;
+        private double coordXPos, coordYPos, coordZPos;
+
         public double XPos
         {
             get => xPos;
-            set => this.RaiseAndSetIfChanged(ref xPos, value);
+            set => this.RaiseAndSetIfChanged(ref coordXPos, value);
         }
 
         public double YPos
         {
             get => yPos;
-            set => this.RaiseAndSetIfChanged(ref yPos, value);
+            set => this.RaiseAndSetIfChanged(ref coordYPos, value);
         }
         public double ZPos
         {
             get => zPos;
-            set => this.RaiseAndSetIfChanged(ref zPos, value);
+            set => this.RaiseAndSetIfChanged(ref coordZPos, value);
         }
 
 
@@ -210,7 +209,7 @@ namespace PanelControlTest1.ViewModels
                 // iO_Digital_8_Control1.BitChanged += IO_Digital_8_Control1_BitChanged;
 
                 timer = new DispatcherTimer();
-                timer.Interval = TimeSpan.FromMilliseconds(50);
+                timer.Interval = TimeSpan.FromMilliseconds(300);
                 timer.Tick += Timer_Tick;
                 timer.Start();
 
@@ -218,6 +217,9 @@ namespace PanelControlTest1.ViewModels
 
             // UpdateControls();
         }
+
+        
+
         //public void UpdateControls()
         //{
         //    if (this.isClientConnected)
@@ -239,15 +241,16 @@ namespace PanelControlTest1.ViewModels
             //string filename;
 
             client.GetAxisDrPosValue(0, out xPos);
-            XPos = xPos;
-            //Xpos.ToString();
             client.GetAxisDrPosValue(1, out yPos);
-            YPos = yPos;
-            //Ypos.ToString();
             client.GetAxisDrPosValue(2, out zPos);
-            ZPos = zPos;
-            //Zpos.ToString();
 
+            xPos = Math.Round(xPos, 3);
+            yPos = Math.Round(yPos, 3);
+            zPos = Math.Round(zPos, 3);
+            Random rnd = new Random();
+            XPos = rnd.NextDouble();
+            YPos = rnd.NextDouble();
+            ZPos = rnd.NextDouble();
 
             //this.client.GetFilePosition(1, out filename, out filepos, out level, out subprog_version);
             //filePosTextBox.Text = "Channel number: " + 1 + Environment.NewLine + "FileName: " + filename + Environment.NewLine + "File position: " + filepos + Environment.NewLine + "Level: " + level + Environment.NewLine + "Subprog version: " + subprog_version;

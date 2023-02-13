@@ -18,7 +18,6 @@ namespace PanelControlTest1.Views
         {
             InitializeComponent();
             DispatcherTimer LiveTime = new DispatcherTimer();
-            CoordClass cl = new CoordClass();
             LiveTime.Interval = TimeSpan.FromSeconds(1);
             LiveTime.Tick += timer_Tick;
             LiveTime.Start();
@@ -32,7 +31,6 @@ namespace PanelControlTest1.Views
 #if DEBUG
             this.AttachDevTools();
 #endif
-            this.DataContext = this;
             
         }
         
